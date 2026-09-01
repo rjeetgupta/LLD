@@ -308,6 +308,14 @@ LSP is important because it makes inheritance and polymorphism **safe and predic
 
 Without LSP, we may end up writing code like this:
 
+**LSP violations can lead to:**
+
+* **Broken functionality** when a subclass replaces its parent class.
+* **Fragile inheritance hierarchies** that are difficult to maintain and extend.
+* **Hard-to-detect bugs** caused by unexpected behavior in subclasses.
+* **Tightly coupled client code** that depends on specific concrete types instead of abstractions.
+
+
 ```java
 if (notification instanceof SilentNotification) {
     // special handling
@@ -340,3 +348,16 @@ and trust that every valid subtype will behave correctly.
 * Makes existing code less likely to break when new subtypes are introduced.
 * Improves maintainability.
 * Encourages better abstractions.
+
+
+## How to Spot an LSP Violation?
+
+* **Subclasses throw unexpected exceptions** when calling a base class method.
+* **Subclasses change the behavior significantly**, causing existing code to fail or behave unexpectedly.
+
+
+## Key Principles
+
+* **Design by Contract**
+* **Avoid excessive inheritance; prefer composition.**
+* **Refactor early.**
